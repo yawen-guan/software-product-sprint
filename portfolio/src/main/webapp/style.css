@@ -7,3 +7,14 @@
 #greeting-container {
   margin-top: 20px;
 }
+
+#show{
+	width:600px;
+	height:300px;
+}
+#listshow{
+	visibility:hidden;
+	width:600px;
+	height:300px;
+	overflow:hidden;
+}
