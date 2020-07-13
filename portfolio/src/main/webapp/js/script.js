@@ -15,20 +15,20 @@
 /**
  * handle Kin slide show
  */
-$(function() {
-	$("#listshow").KinSlideshow({
-		moveStyle: "down",
-		intervalTime: 2,
-		titleBar: { titleBar_height: 30, titleBar_bgColor: "#000000", titleBar_alpha: 0.5 },
-		mouseEvent: "mouseover",
-		titleFont: { TitleFont_size: 8, TitleFont_color: "#FF0000" },
-		btn: {
-			btn_bgColor: "#666666", btn_bgHoverColor: "#f00",
-			btn_fontColor: "#fff", btn_fontHoverColor: "#fff", btn_fontFamily: "Verdana",
-			btn_borderColor: "#999999", btn_borderHoverColor: "#FF0000",
-			btn_borderWidth: 1, btn_bgAlpha: 0.9
-		}
-	});
+$(function () {
+  $("#listshow").KinSlideshow({
+    moveStyle: "down",
+    intervalTime: 2,
+    titleBar: { titleBar_height: 30, titleBar_bgColor: "#000000", titleBar_alpha: 0.5 },
+    mouseEvent: "mouseover",
+    titleFont: { TitleFont_size: 8, TitleFont_color: "#FF0000" },
+    btn: {
+      btn_bgColor: "#666666", btn_bgHoverColor: "#f00",
+      btn_fontColor: "#fff", btn_fontHoverColor: "#fff", btn_fontFamily: "Verdana",
+      btn_borderColor: "#999999", btn_borderHoverColor: "#FF0000",
+      btn_borderWidth: 1, btn_bgAlpha: 0.9
+    }
+  });
 })
 
 /**
@@ -36,7 +36,7 @@ $(function() {
  */
 function addRandomGreeting() {
   const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
+    ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
 
   // Pick a random greeting.
   const greeting = greetings[Math.floor(Math.random() * greetings.length)];
@@ -52,3 +52,24 @@ async function getRandomCatName() {
   document.getElementById('cat-name-container').innerText = quote;
 }
 
+function getJson() {
+  fetch('/data').then(response => response.json()).then((obj) => {
+    const element = document.getElementById('json-container');
+    element.innerHTML = '';
+    element.appendChild(
+      createListElement('obj1: ' + obj[0]));
+    element.appendChild(
+      createListElement('obj2: ' + obj[1]));
+    element.appendChild(
+      createListElement('obj3: ' + obj[2]));
+    element.appendChild(
+      createListElement('obj4: ' + obj[3]));
+  });
+}
+
+/** Creates an <li> element containing text. */
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
+}
