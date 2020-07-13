@@ -13,6 +13,7 @@
 // limitations under the License.
 
 package com.google.sps.servlets;
+import com.google.sps.data.Comment;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -27,25 +28,34 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
-
-  private ArrayList<String> names;
-
   @Override
-  public void init(){
-    names = new ArrayList<>(Arrays.asList("Oliver", "Leo", "Milo", "Charlie"));
-  }
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    // Get the input from the form.)
+    String text = getParameter(request, "comment-text", "");
+    String name = getParameter(request, "name", "");
+    String email = getParameter(request, "email", "");
+    Comment comment = new Comment(text, name, email);
+    String json = convertToJson(comment);
 
-
-  @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    String json = convertToJson(names); 
     response.setContentType("text/html;");
     response.getWriter().println(json);
   }
 
-  private String convertToJson(ArrayList<String> arraylist){
+  /**
+   * @return the request parameter, or the default value if the parameter
+   *         was not specified by the client
+   */
+  private String getParameter(HttpServletRequest request, String name, String defaultValue) {
+    String value = request.getParameter(name);
+    if (value == null) {
+      return defaultValue;
+    }
+    return value;
+  }
+  
+  private String convertToJson(Comment comment){
     Gson gson = new Gson();
-    String json = gson.toJson(arraylist);
+    String json = gson.toJson(comment);
     return json;
   }
 

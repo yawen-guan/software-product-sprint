@@ -52,20 +52,20 @@ async function getRandomCatName() {
   document.getElementById('cat-name-container').innerText = quote;
 }
 
-function getJson() {
-  fetch('/data').then(response => response.json()).then((obj) => {
-    const element = document.getElementById('json-container');
-    element.innerHTML = '';
-    element.appendChild(
-      createListElement('obj1: ' + obj[0]));
-    element.appendChild(
-      createListElement('obj2: ' + obj[1]));
-    element.appendChild(
-      createListElement('obj3: ' + obj[2]));
-    element.appendChild(
-      createListElement('obj4: ' + obj[3]));
-  });
-}
+// function getJson() {
+//   fetch('/data').then(response => response.json()).then((obj) => {
+//     const element = document.getElementById('json-container');
+//     element.innerHTML = '';
+//     element.appendChild(
+//       createListElement('obj1: ' + obj[0]));
+//     element.appendChild(
+//       createListElement('obj2: ' + obj[1]));
+//     element.appendChild(
+//       createListElement('obj3: ' + obj[2]));
+//     element.appendChild(
+//       createListElement('obj4: ' + obj[3]));
+//   });
+// }
 
 /** Creates an <li> element containing text. */
 function createListElement(text) {
