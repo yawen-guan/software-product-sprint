@@ -18,3 +18,15 @@
 	height:300px;
 	overflow:hidden;
 }
+
+.comment {
+  border: thin solid black;
+  display: flex;
+  margin: 10px;
+  padding: 10px;
+  width: 600px;
+}
+
+.comment span {
+  flex-grow: 1;
+}

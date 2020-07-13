@@ -37,11 +37,7 @@ $(function () {
 function addRandomGreeting() {
   const greetings =
     ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
-
-  // Pick a random greeting.
   const greeting = greetings[Math.floor(Math.random() * greetings.length)];
-
-  // Add it to the page.
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
 }
@@ -52,24 +48,28 @@ async function getRandomCatName() {
   document.getElementById('cat-name-container').innerText = quote;
 }
 
-// function getJson() {
-//   fetch('/data').then(response => response.json()).then((obj) => {
-//     const element = document.getElementById('json-container');
-//     element.innerHTML = '';
-//     element.appendChild(
-//       createListElement('obj1: ' + obj[0]));
-//     element.appendChild(
-//       createListElement('obj2: ' + obj[1]));
-//     element.appendChild(
-//       createListElement('obj3: ' + obj[2]));
-//     element.appendChild(
-//       createListElement('obj4: ' + obj[3]));
-//   });
-// }
+function loadComment() {
+  fetch('/list-comment').then(response => response.json()).then((comments) => {
+    const commentListElement = document.getElementById('comment-list');
+    comments.forEach((comment) => {
+      commentListElement.appendChild(createCommentElement(comment));
+    })
+  });
+}
 
-/** Creates an <li> element containing text. */
-function createListElement(text) {
-  const liElement = document.createElement('li');
-  liElement.innerText = text;
-  return liElement;
+function createCommentElement(comment) {
+  console.log('create comment element');
+  const commentElement = document.createElement('li');
+  commentElement.className = 'comment';
+
+  const textElement = document.createElement('span');
+  textElement.innerText = comment.comment_text;
+
+  const authorElement = document.createElement('span');
+  authorElement.innerText = "\n\tAuthor:\t" + comment.name + "\n\tEmail:\t" + comment.email + "\n";
+
+  commentElement.appendChild(textElement);
+  commentElement.appendChild(authorElement);
+
+  return commentElement;
 }
