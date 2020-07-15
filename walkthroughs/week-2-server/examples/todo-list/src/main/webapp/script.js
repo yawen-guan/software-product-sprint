@@ -48,5 +48,5 @@ function createTaskElement(task) {
 function deleteTask(task) {
   const params = new URLSearchParams();
   params.append('id', task.id);
-  fetch('/delete-task', {method: 'POST', body: params});
+  fetch('/delete-task', { method: 'POST', body: params });
 }
