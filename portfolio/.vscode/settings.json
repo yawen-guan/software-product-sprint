@@ -1,0 +1,11 @@
+{
+    "java.home": "/usr/lib/jvm/java-8-openjdk-amd64/",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "java.checkstyle.configuration": "/google_checks.xml",
+    "java.format.settings.url": "~/Documents/format/eclipse-java-google-style.xml"
+}

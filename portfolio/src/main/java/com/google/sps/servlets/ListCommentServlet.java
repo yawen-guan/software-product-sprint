@@ -28,18 +28,17 @@ public class ListCommentServlet extends HttpServlet {
 
     List<Comment> comments = new ArrayList<>();
     for (Entity entity : results.asIterable()) {
-        long id = entity.getKey().getId();
-        String comment_text = (String) entity.getProperty("comment-text");
-        String name = (String) entity.getProperty("name");
-        String email = (String) entity.getProperty("email");
-        long timestamp = (long) entity.getProperty("timestamp");
+      long id = entity.getKey().getId();
+      String comment_text = (String) entity.getProperty("comment-text");
+      String name = (String) entity.getProperty("name");
+      String email = (String) entity.getProperty("email");
+      long timestamp = (long) entity.getProperty("timestamp");
 
-        Comment comment = new Comment(id, comment_text, name, email, timestamp);
-        comments.add(comment);
+      Comment comment = new Comment(id, comment_text, name, email, timestamp);
+      comments.add(comment);
     }
 
     Gson gson = new Gson();
-
     response.setContentType("application/json;");
     response.getWriter().println(gson.toJson(comments));
   }
