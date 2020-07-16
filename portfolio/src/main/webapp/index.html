@@ -1,18 +1,80 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-  </head>
-  <body>
-    <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Gwen's Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+
+<body background="./images/backgrounk-pp.jpeg" onload="loadComment()">
+
+  <div id="content">
+    <h1>Gwen's Portfolio</h1>
+    <p>Nice to meet you! Here is Gwen.</p>
+    <img src="images/portrait.jpg" />
+    <p>Click here to get a random message:</p>
+    <button onclick="addRandomGreeting()">Hello</button>
+    <div id="greeting-container"></div>
+  </div>
+
+  <div id="content">
+    <h2>About Me</h2>
+    <p>I'm a sophomore majoring in computer science in Sun Yat-sen University.</p>
+    <p>I write C++ or Java most of the time, now I'm interesting in programming language theory.</p>
+    <p>Please feel free to contack me :D</p>
+  </div>
+
+  <div id="content">
+    <h2>My Hobby</h2>
+    <p>While I'm not good at playing games, but I like watching them! There are some of the games I like:</p>
+    <div id="show">
+      <div id="listshow">
+        <a href="#"><img src="images/deathstranding.jpeg" width="600px" /></a>
+        <a href="#"><img src="images/thelastofus.jpg" width="600px" /></a>
+        <a href="#"><img src="images/rimworld.jpg" width="600px" /></a>
+        <a href="#"><img src="images/sekiro.jpeg" width="600px" /></a>
+      </div>
     </div>
-  </body>
+    <br><br>
+  </div>
+
+  <div id="content">
+    <h1>My Pets</h1>
+    <p>I don't have a pet in real life, but I have more than 20 cats in my villiage in Rimworld! p.s. Rimworld is a
+      game.</p>
+    <p>Click here to get one of their name!</p>
+    <button onclick="getRandomCatName()">Fetch a cat's name!</button>
+    <div id="cat-name-container"></div>
+  </div>
+
+  <div id="content">
+    <h2>Contact Me</h2>
+    <p>Email: Gw980091931@gmail.com</p>
+    <p>Github: <a href="https://github.com/Gw98/">Gw98</a></p>
+    <p>Blog: <a href="https://yvettegwen.com"">yvettegwen.com</a></p>
+  </div>
+
+  <div id="content">
+        <h2>Comment</h2>
+        <form action="/add-comment" method="POST">
+          <p>Please leave your comment:</p>
+          <textarea name="comment-text" rows="5" cols="70">Leave your comment here ... </textarea>
+          <br /><br />
+          <p>Your name: <input name="name"></p>
+          <p>Your email address: <input name="email"></p>
+          <input type="submit" />
+        </form>
+  </div>
+
+  <div id="content">
+    <ul id="comment-list"></ul>
+  </div>
+
+</body>
+<script src=" ./js/jquery.js" type="text/javascript"></script>
+<script src="./js/jquery.KinSlideshow-1.2.1.min.js" type="text/javascript"></script>
+<script src="./js/script.js" type="text/javascript"></script>
+
 </html>

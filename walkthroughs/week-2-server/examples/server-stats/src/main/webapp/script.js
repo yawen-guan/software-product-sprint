@@ -23,13 +23,13 @@ function getServerStats() {
     const statsListElement = document.getElementById('server-stats-container');
     statsListElement.innerHTML = '';
     statsListElement.appendChild(
-        createListElement('Start time: ' + stats.startTime));
+      createListElement('Start time: ' + stats.startTime));
     statsListElement.appendChild(
-        createListElement('Current time: ' + stats.currentTime));
+      createListElement('Current time: ' + stats.currentTime));
     statsListElement.appendChild(
-        createListElement('Max memory: ' + stats.maxMemory));
+      createListElement('Max memory: ' + stats.maxMemory));
     statsListElement.appendChild(
-        createListElement('Used memory: ' + stats.usedMemory));
+      createListElement('Used memory: ' + stats.usedMemory));
   });
 }
 
